@@ -1,0 +1,91 @@
+[
+  {
+    "_id": 1,
+    "roomName": "Quiet Focus Room",
+    "description": "A peaceful and private study room designed for focused learning sessions and group discussions.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "floor": "3rd Floor",
+    "capacity": 4,
+    "hourlyRate": 5,
+    "amenities": [
+      "Wi-Fi",
+      "Whiteboard",
+      "Quiet Zone",
+      "Power Outlets"
+    ]
+  },
+  {
+     "_id": 2,
+    "roomName": "Modern Study Hub",
+    "description": "Spacious study environment with high-speed internet and projector support for presentations.",
+    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
+    "floor": "2nd Floor",
+    "capacity": 8,
+    "hourlyRate": 10,
+    "amenities": [
+      "Projector",
+      "Wi-Fi",
+      "Air Conditioning",
+      "Power Outlets"
+    ]
+  },
+  {
+    "roomName": "Solo Learning Cabin",
+    "description": "Compact and quiet room ideal for solo studying, reading, and online classes.",
+    "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
+    "floor": "1st Floor",
+    "capacity": 1,
+    "hourlyRate": 3,
+    "amenities": [
+      "Quiet Zone",
+      "Wi-Fi",
+      "Power Outlets"
+    ]
+  },
+  {
+     "_id": 4,
+    "roomName": "Creative Collaboration Space",
+    "description": "Perfect for brainstorming sessions, workshops, and team-based learning activities.",
+    "image": "https://images.unsplash.com/photo-1497366412874-3415097a27e7",
+    "floor": "5th Floor",
+    "capacity": 10,
+    "hourlyRate": 15,
+    "amenities": [
+      "Projector",
+      "Whiteboard",
+      "Wi-Fi",
+      "Air Conditioning"
+    ]
+  },
+  {
+     "_id": 5,
+    "roomName": "Night Owl Study Room",
+    "description": "Comfortable late-night study room with silent surroundings and ergonomic seating.",
+    "image": "https://images.unsplash.com/photo-1517502884422-41eaead166d4",
+    "floor": "4th Floor",
+    "capacity": 6,
+    "hourlyRate": 7,
+    "amenities": [
+      "Quiet Zone",
+      "Wi-Fi",
+      "Air Conditioning",
+      "Power Outlets"
+    ]
+  },
+  {
+     "_id": 6,
+    "roomName": "Premium Executive Study Suite",
+    "description": "Luxury private study suite equipped with premium furniture and smart presentation tools.",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
+    "floor": "7th Floor",
+    "capacity": 5,
+    "hourlyRate": 20,
+    "amenities": [
+      "Projector",
+      "Wi-Fi",
+      "Whiteboard",
+      "Air Conditioning",
+      "Power Outlets"
+    ]
+  }
+]
