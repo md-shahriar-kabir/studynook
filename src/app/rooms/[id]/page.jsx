@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import { Pencil, Trash2, Users, MapPin } from "lucide-react";
-import { BiEdit } from "react-icons/bi";
 import EditModal from "@/app/components/EditModal";
 import { DeleteRoom } from "@/app/components/DeleteRoom";
+import BookingCard from "@/app/components/BookingCard";
 
 const RoomDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -34,13 +34,6 @@ const RoomDetailsPage = async ({ params }) => {
 
           {/* Buttons */}
           <div className="flex gap-4">
-            {/* <Button
-              color="white"
-              variant="outline"
-              className="text-white font-semibold px-6"
-            >
-              <BiEdit/>Edit
-            </Button> */}
             <EditModal room={room}/>
             <DeleteRoom room={room}/>
           </div>
@@ -49,7 +42,7 @@ const RoomDetailsPage = async ({ params }) => {
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Image */}
-          <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative h-[965px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src={room.image}
               alt={room.roomName}
@@ -66,11 +59,14 @@ const RoomDetailsPage = async ({ params }) => {
             </div>
           </div>
 
+            <BookingCard room={room}/>
+
+
           {/* Details */}
           <div>
             {/* Description */}
-            <div className="bg-[#0d1b2a] border border-white/10 rounded-3xl p-8 shadow-xl">
-              <h2 className="text-3xl font-bold text-white mb-5">
+            <div className="bg-[#0d1b2a] border border-white/10 rounded-3xl p-6 shadow-xl">
+              <h2 className="text-3xl font-bold text-white mb-3">
                 Description
               </h2>
 

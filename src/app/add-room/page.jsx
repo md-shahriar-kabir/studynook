@@ -53,7 +53,6 @@ const AddRoomPage = () => {
       body: JSON.stringify(room)
     });
     const data = await res.json()
-    console.log(data)
 
     if (res.ok) {
       toast.success("Room added successfully");
