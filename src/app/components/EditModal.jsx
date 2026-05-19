@@ -1,6 +1,4 @@
 "use client";
-
-import { Envelope } from "@gravity-ui/icons";
 import { Button, Modal, Surface } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -68,17 +66,14 @@ export default function EditModal({ room }) {
     const data = await res.json()
     console.log(data)
 
-    // if (res.ok) {
-    //   toast.success("Room added successfully");
-    //   router.push("/my-listings");
-    // }
-
-    alert("Room added successfully");
+    if (res.ok) {
+      toast.success("Room added successfully");
+      router.push("/rooms");
+    }
 
     form.reset();
     setSelectedAmenities([]);
 
-    // router.push("/rooms");
   };
 
   return (
