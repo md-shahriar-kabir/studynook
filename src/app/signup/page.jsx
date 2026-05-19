@@ -120,6 +120,7 @@ const SignUpPage = () => {
             <Button onClick={handleGoogleSignin} variant="outline" className={'w-full rounded-none'}><FcGoogle /> Sign in with Google</Button>
         </div>
       </Card>
+      
     </div>
   );
 };
