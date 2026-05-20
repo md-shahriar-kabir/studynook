@@ -2,6 +2,7 @@
 import { Button, Modal, Surface } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import { BiEdit } from "react-icons/bi";
 

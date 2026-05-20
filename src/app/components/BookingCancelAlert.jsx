@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
+import toast from "react-hot-toast";
 
 export function BookingCancelAlert({bookingId}) {
     const handleCancelBooking = async() => {
@@ -15,6 +16,7 @@ export function BookingCancelAlert({bookingId}) {
             },
         })
           const data =await res.json()
+          toast.success("Room Booking Cancel Successfully")
           window.location.reload()
     }
 

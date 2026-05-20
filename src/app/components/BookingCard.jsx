@@ -24,7 +24,7 @@ const timeSlots = [
 ];
 
 const BookingCard = ({ room }) => {
-    const {image, roomName, floor, capacity} = room
+  const { image, roomName, floor, capacity } = room;
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const [date, setDate] = useState("");
@@ -80,26 +80,30 @@ const BookingCard = ({ room }) => {
       floor,
       capacity,
       specialNote,
-      status : "confirmed",
+      status: "confirmed",
     };
 
-    const {data:tokenData} = await authClient.token()
-    console.log(tokenData)
+    const { data: tokenData } = await authClient.token();
+    console.log(tokenData);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`,
-        {
-            method:'POST',
-            headers: { 
-                'content-type': 'application/json',
-                authorization : `Bearer ${tokenData?.token}`
-            },
-            body: JSON.stringify(bookingData)
-        })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${tokenData?.token}`,
+      },
+      body: JSON.stringify(bookingData),
+    });
 
-        const data = await res.json()
-        toast.success('Your Room Booking is Confirmed')
-        redirect('/my-bookings')
-
+    const data = await res.json();
+    // toast.success('Your Room Booking is Confirmed')
+    // redirect('/my-bookings')
+    if (res.ok) {
+      toast.success("Room booked successfully!");
+      redirect("/my-bookings");
+    } else {
+      toast.error(data.message);
+    }
   };
 
   return (
