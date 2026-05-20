@@ -23,6 +23,7 @@ const timeSlots = [
 ];
 
 const BookingCard = ({ room }) => {
+    const {image, roomName, floor, capacity} = room
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const [date, setDate] = useState("");
@@ -73,6 +74,10 @@ const BookingCard = ({ room }) => {
       startTime,
       endTime,
       totalCost,
+      image,
+      roomName,
+      floor,
+      capacity,
       specialNote,
     };
 

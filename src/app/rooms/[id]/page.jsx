@@ -126,17 +126,6 @@ const RoomDetailsPage = async ({ params }) => {
               </div>
             </div>
 
-            {/* Booking Count */}
-            <div className="bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-3xl p-8 mt-8 shadow-2xl">
-              <h2 className="text-2xl font-bold text-white mb-2">
-                Booking Count
-              </h2>
-
-              <p className="text-5xl font-extrabold text-white">
-                {room.bookingCount || 0}
-              </p>
-            </div>
-
           </div>
         </div>
       </div>
