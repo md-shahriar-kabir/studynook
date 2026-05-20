@@ -9,7 +9,7 @@ const MyBookingPage = async () => {
     headers: await headers(),
   });
 
-  const {token} = await auth.api.getToken({
+  const { token } = await auth.api.getToken({
     headers : await headers(),
   })
 
