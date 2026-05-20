@@ -32,9 +32,6 @@ const Navbar = () => {
           <Link href={"/add-room"}>Add Room</Link>
         </li>
         <li>
-          <Link href={"/my-listings"}>My Listings</Link>
-        </li>
-        <li>
           <Link href={"/my-bookings"}>My Bookings</Link>
         </li>
       </ul>

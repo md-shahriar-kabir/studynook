@@ -1,20 +1,29 @@
 
 
 import Image from "next/image";
-import { Button } from "@heroui/react";
-import { Pencil, Trash2, Users, MapPin } from "lucide-react";
+import { Users, MapPin } from "lucide-react";
 import EditModal from "@/app/components/EditModal";
 import { DeleteRoom } from "@/app/components/DeleteRoom";
 import BookingCard from "@/app/components/BookingCard";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const RoomDetailsPage = async ({ params }) => {
   const { id } = await params;
+  const token = await auth.api.getToken({
+    headers: await headers()
+  })
+  console.log(token)
 
   const res = await fetch(`http://localhost:5000/room/${id}`, {
     cache: "no-store",
+    headers: {
+      authorization: `Bearer ${token.token}`
+    }
   });
 
   const room = await res.json();
+  console.log(room)
 
   return (
     <section className="min-h-screen bg-[#07111f] py-20 px-6">
@@ -44,8 +53,8 @@ const RoomDetailsPage = async ({ params }) => {
           {/* Image */}
           <div className="relative h-[965px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src={room.image}
-              alt={room.roomName}
+              src={room?.image}
+              alt={room?.roomName}
               fill
               className="object-cover"
             />

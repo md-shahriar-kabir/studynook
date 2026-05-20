@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CalendarDays, Clock3, NotebookPen } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 const timeSlots = [
   "08:00",
@@ -82,17 +83,22 @@ const BookingCard = ({ room }) => {
       status : "confirmed",
     };
 
+    const {data:tokenData} = await authClient.token()
+    console.log(tokenData)
+
     const res = await fetch('http://localhost:5000/booking',
         {
             method:'POST',
             headers: { 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization : `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(bookingData)
         })
 
         const data = await res.json()
         toast.success('Your Room Booking is Confirmed')
+        redirect('/my-bookings')
 
   };
 

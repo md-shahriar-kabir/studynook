@@ -17,13 +17,11 @@ const RoomsPage = () => {
       try {
         const res = await fetch("http://localhost:5000/room");
         const data = await res.json();
-        console.log(data)
 
         setRooms(data);
         setFilteredRooms(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setLoading(false);
       }
     };
