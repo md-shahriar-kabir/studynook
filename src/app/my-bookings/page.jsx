@@ -1,6 +1,8 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
+import { BookingCancelAlert } from "../components/BookingCancelAlert";
+import Link from "next/link";
 
 const MyBookingPage = async () => {
   const session = await auth.api.getSession({
@@ -9,12 +11,9 @@ const MyBookingPage = async () => {
 
   const user = session?.user;
 
-  const res = await fetch(
-    `http://localhost:5000/booking/${user?.id}`,
-    {
-      cache: "no-store",
-    },
-  );
+  const res = await fetch(`http://localhost:5000/booking/${user?.id}`, {
+    cache: "no-store",
+  });
 
   const bookings = await res.json();
 
@@ -36,13 +35,9 @@ const MyBookingPage = async () => {
 
             {/* Info */}
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl font-extrabold">
-                {user?.name}
-              </h1>
+              <h1 className="text-4xl font-extrabold">{user?.name}</h1>
 
-              <p className="text-gray-400 mt-2">
-                {user?.email}
-              </p>
+              <p className="text-gray-400 mt-2">{user?.email}</p>
             </div>
 
             {/* Total */}
@@ -51,44 +46,56 @@ const MyBookingPage = async () => {
                 {bookings.length}
               </h2>
 
-              <p className="text-gray-400 text-sm mt-1">
-                Total Bookings
-              </p>
+              <p className="text-gray-400 text-sm mt-1">Total Bookings</p>
             </div>
           </div>
         </div>
 
         {/* Heading */}
         <div className="mb-10">
-          <h2 className="text-5xl font-extrabold">
-            My Bookings
-          </h2>
+          <h2 className="text-5xl font-extrabold">My Bookings</h2>
 
-          <p className="text-gray-400 mt-3">
-            Manage all your room bookings.
-          </p>
+          <p className="text-gray-400 mt-3">Manage all your room bookings.</p>
         </div>
 
         {/* Empty State */}
         {bookings.length === 0 ? (
           <div className="bg-[#0d1b2a] border border-white/10 rounded-3xl p-16 text-center">
-            <h2 className="text-3xl font-bold">
+            {/* Small Tag */}
+            <p className="uppercase tracking-[4px] text-cyan-400 text-sm mb-4">
+              No Reservations Found
+            </p>
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
               You have no bookings yet.
             </h2>
+
+            {/* Description */}
+            <p className="text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed text-lg">
+              Discover modern and comfortable study rooms designed for focus,
+              collaboration, and productivity. Start exploring available spaces
+              and book your perfect room today.
+            </p>
+
+            {/* Button */}
+            <div className="mt-10">
+              <Link href="/rooms">
+                <button className="bg-cyan-500 hover:bg-cyan-600 transition-all duration-300 px-8 py-4 rounded-2xl cursor-pointer text-white font-bold shadow-2xl">
+                  Browse Collection
+                </button>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="space-y-8">
             {bookings.map((booking) => {
-              const bookingDate =
-                new Date(booking.date);
+              const bookingDate = new Date(booking.date);
 
-              const today =
-                new Date();
+              const today = new Date();
 
               const canCancel =
-                booking.status ===
-                  "confirmed" &&
-                bookingDate >= today;
+                booking.status === "confirmed" && bookingDate >= today;
 
               return (
                 <div
@@ -100,9 +107,7 @@ const MyBookingPage = async () => {
                     <div className="relative h-72 lg:h-full">
                       <Image
                         src={booking.image}
-                        alt={
-                          booking.roomName
-                        }
+                        alt={booking.roomName}
                         fill
                         className="object-cover"
                       />
@@ -114,30 +119,21 @@ const MyBookingPage = async () => {
                       <div className="flex items-start justify-between gap-6 flex-wrap">
                         <div>
                           <h2 className="text-4xl font-extrabold">
-                            {
-                              booking.roomName
-                            }
+                            {booking.roomName}
                           </h2>
 
-                          <p className="text-gray-400 mt-2">
-                            {
-                              booking.floor
-                            }
-                          </p>
+                          <p className="text-gray-400 mt-2">{booking.floor}</p>
                         </div>
 
                         {/* Status */}
                         <div
                           className={`px-5 py-2 rounded-full text-sm font-semibold ${
-                            booking.status ===
-                            "confirmed"
+                            booking.status === "confirmed"
                               ? "bg-green-500/10 text-green-400"
                               : "bg-red-500/10 text-red-400"
                           }`}
                         >
-                          {
-                            booking.status
-                          }
+                          {booking.status}
                         </div>
                       </div>
 
@@ -149,25 +145,15 @@ const MyBookingPage = async () => {
                             Booking Date
                           </p>
 
-                          <h3 className="font-bold text-2xl">
-                            {booking.date}
-                          </h3>
+                          <h3 className="font-bold text-2xl">{booking.date}</h3>
                         </div>
 
                         {/* Time */}
                         <div className="bg-white/5 rounded-2xl p-5">
-                          <p className="text-gray-400 text-sm mb-2">
-                            Time
-                          </p>
+                          <p className="text-gray-400 text-sm mb-2">Time</p>
 
                           <h3 className="font-bold text-2xl">
-                            {
-                              booking.startTime
-                            }{" "}
-                            -{" "}
-                            {
-                              booking.endTime
-                            }
+                            {booking.startTime} - {booking.endTime}
                           </h3>
                         </div>
 
@@ -178,26 +164,14 @@ const MyBookingPage = async () => {
                           </p>
 
                           <h3 className="font-bold text-2xl text-cyan-400">
-                            $
-                            {
-                              booking.totalCost
-                            }
+                            ${booking.totalCost}
                           </h3>
                         </div>
                       </div>
 
                       {/* Bottom */}
                       <div className="flex items-center justify-between mt-10 flex-wrap gap-4">
-                        <p className="text-gray-500 text-sm">
-                          Booking ID: #
-                          {booking._id}
-                        </p>
-
-                        {canCancel && (
-                          <button className="bg-red-500 hover:bg-red-600 transition px-7 py-3 rounded-2xl font-semibold text-white">
-                            Cancel Booking
-                          </button>
-                        )}
+                        <BookingCancelAlert bookingId={booking._id} />
                       </div>
                     </div>
                   </div>
