@@ -15,7 +15,7 @@ const RoomsPage = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("http://localhost:5000/room");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/room`);
         const data = await res.json();
 
         setRooms(data);

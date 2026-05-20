@@ -9,10 +9,10 @@ export function DeleteRoom({ room }) {
   const { _id, roomName } = room;
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:5000/room/${_id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/room/${_id}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
     });
 

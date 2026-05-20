@@ -56,10 +56,10 @@ export default function EditModal({ room }) {
     };
     console.log(room)
 
-    const res = await fetch(`http://localhost:5000/room/${_id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/room/${_id}`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(room)
     });

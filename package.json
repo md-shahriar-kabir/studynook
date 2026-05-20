@@ -14,7 +14,7 @@
     "@heroui/react": "^3.0.5",
     "@heroui/styles": "^3.0.5",
     "better-auth": "^1.6.11",
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^12.39.0",
     "lucide-react": "^1.16.0",
     "mongodb": "^7.2.0",
     "motion": "^12.38.0",
