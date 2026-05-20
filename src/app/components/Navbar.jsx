@@ -1,84 +1,9 @@
-// "use client";
-// import Link from "next/link";
-// import { authClient } from "@/lib/auth-client";
-// import { Avatar, Button } from "@heroui/react";
-
-// const Navbar = () => {
-//   const { data: session } = authClient.useSession();
-//   const user = session?.user;
-
-//   const handleSignOut = async() => {
-//     await authClient.signOut();
-//   }
-
-//   return (
-//     <nav className="flex items-center justify-between p-5">
-//       <div>
-//         <Link href={"/"}>
-//           <h2 className="text-2xl font-extrabold">
-//             Study{" "}
-//             <span className="text-2xl text-cyan-400 font-extrabold">Nook</span>
-//           </h2>
-//         </Link>
-//       </div>
-//       <ul className="flex gap-3">
-//         <li>
-//           <Link href={"/"}>Home</Link>
-//         </li>
-//         <li>
-//           <Link href={"/rooms"}>Rooms</Link>
-//         </li>
-//         <li>
-//           <Link href={"/add-room"}>Add Room</Link>
-//         </li>
-//         <li>
-//           <Link href={"/my-bookings"}>My Bookings</Link>
-//         </li>
-//       </ul>
-
-//       <ul className="flex items-center gap-3">
-//         <li>
-//           <Link href={"/profile"}>My Profile</Link>
-//         </li>
-
-//         {user ? (
-//           <>
-//             <li>
-//               <Avatar>
-//                 <Avatar.Image
-//                   alt="John Doe"
-//                   src={user?.image}
-//                 />
-//                 <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-//               </Avatar>
-//             </li>
-//             <li><Button onClick={handleSignOut} variant="danger">Logout</Button></li>
-//           </>
-//         ) : (
-//           <>
-//             <li>
-//               <Link href={"/login"}>Login</Link>
-//             </li>
-//             <li>
-//               <Link href={"/signup"}>Sign Up</Link>
-//             </li>
-//           </>
-//         )}
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 
 "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import { usePathname } from "next/navigation";
-
 import { authClient } from "@/lib/auth-client";
 
 import {
@@ -189,7 +114,7 @@ const Navbar = () => {
                 ? "bg-cyan-500 text-white shadow-lg"
                 : "bg-white text-cyan-600 shadow-lg"
               : darkMode
-              ? "text-gray-300 hover:text-cyan-400 hover:bg-white/5"
+              ? "text-gray-100 hover:text-cyan-400 hover:bg-white/5"
               : "text-white hover:bg-white/20"
           }`}
         >
@@ -299,7 +224,7 @@ const Navbar = () => {
             <>
               {/* Profile */}
               <Link
-                href={"/profile"}
+                href={"/my-bookings"}
                 className={`flex items-center gap-3 px-3 py-2 rounded-full transition ${
                   darkMode
                     ? "bg-white/5 hover:bg-white/10 border border-white/10"
@@ -414,7 +339,7 @@ const Navbar = () => {
               <>
                 <Link
                   href={
-                    "/profile"
+                    "/my-bookings"
                   }
                   className={`flex items-center gap-3 px-4 py-3 rounded-2xl ${
                     darkMode

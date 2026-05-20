@@ -1,5 +1,4 @@
 
-
 import Image from "next/image";
 import { Users, MapPin } from "lucide-react";
 import EditModal from "@/app/components/EditModal";
@@ -10,16 +9,17 @@ import { headers } from "next/headers";
 
 const RoomDetailsPage = async ({ params }) => {
   const { id } = await params;
-  // const token = await auth.api.getToken({
-  //   headers: await headers()
-  // })
+  const {token} = await auth.api.getToken({
+    headers: await headers()
+  })
+  console.log(token)
 
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/room/${id}`, {
     cache: "no-store",
-    // headers: {
-    //   authorization: `Bearer ${token.token}`
-    // }
+    headers: {
+      authorization: `Bearer ${token}`
+    }
   });
 
   const room = await res.json();
