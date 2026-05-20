@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 
 import {
   ArrowRight,
+  BookAIcon,
   BookOpenCheck,
-  Sparkles,
 } from "lucide-react";
 
 const Banner = () => {
@@ -51,7 +51,7 @@ const Banner = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 items-center gap-16">
+        <div className="grid lg:grid-cols-2 items-center gap-10">
           {/* Left Side */}
           <motion.div
             initial={{
@@ -65,7 +65,7 @@ const Banner = () => {
             transition={{
               duration: 1,
             }}
-            className="space-y-8"
+            className="space-y-8 mt-3"
           >
             {/* Top Badge */}
             <motion.div
@@ -83,7 +83,7 @@ const Banner = () => {
               }}
               className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3"
             >
-              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <BookAIcon className="w-5 h-5 text-cyan-400" />
 
               <span className="text-sm uppercase tracking-[4px] text-cyan-300 font-semibold">
                 Smart Study Environment
@@ -94,7 +94,7 @@ const Banner = () => {
             <motion.div
               initial={{
                 opacity: 0,
-                y: 50,
+                y: 40,
               }}
               animate={{
                 opacity: 1,
@@ -143,7 +143,7 @@ const Banner = () => {
                 delay: 0.7,
                 duration: 1,
               }}
-              className="text-lg md:text-2xl text-gray-300 leading-relaxed max-w-2xl"
+              className="text-lg md:text-2xl text-gray-300 max-w-2xl"
             >
               Book quiet, comfortable,
               and fully equipped study

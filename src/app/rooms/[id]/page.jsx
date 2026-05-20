@@ -10,16 +10,16 @@ import { headers } from "next/headers";
 
 const RoomDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const token = await auth.api.getToken({
-    headers: await headers()
-  })
-  console.log(token)
+  // const token = await auth.api.getToken({
+  //   headers: await headers()
+  // })
+
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/room/${id}`, {
     cache: "no-store",
-    headers: {
-      authorization: `Bearer ${token.token}`
-    }
+    // headers: {
+    //   authorization: `Bearer ${token.token}`
+    // }
   });
 
   const room = await res.json();
