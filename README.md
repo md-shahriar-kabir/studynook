@@ -4,7 +4,7 @@ StudyNook is a modern study room booking platform where students can discover, b
 
 ## 🌐 Live Site
 
-Client Site: https://your-live-site-url.com
+Client Site: https://studynook-pi.vercel.app/
 
 ---
 
