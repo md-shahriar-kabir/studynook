@@ -96,8 +96,7 @@ const BookingCard = ({ room }) => {
     });
 
     const data = await res.json();
-    // toast.success('Your Room Booking is Confirmed')
-    // redirect('/my-bookings')
+
     if (res.ok) {
       toast.success("Room booked successfully!");
       redirect("/my-bookings");

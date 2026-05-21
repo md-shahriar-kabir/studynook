@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname =
@@ -231,11 +232,21 @@ const Navbar = () => {
                     : "bg-white/20 hover:bg-white/30"
                 }`}
               >
-                <Avatar
+                {/* <Image
+                fill
                   src={user?.image}
                   name={user?.name}
                   className="w-9 h-9"
+                /> */}
+                <Image
+                  src={user?.image}
+                  name={user?.name}
+                  alt = "profile"
+                  width={20}
+                  height={20}
+                  className="rounded-full"
                 />
+
 
                 <span className="text-sm font-medium">
                   {user?.name}

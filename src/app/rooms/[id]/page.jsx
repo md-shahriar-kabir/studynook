@@ -23,7 +23,6 @@ const RoomDetailsPage = async ({ params }) => {
   });
 
   const room = await res.json();
-  console.log(room)
 
   return (
     <section className="min-h-screen bg-[#07111f] py-20 px-6">

@@ -156,7 +156,7 @@ const Featured = async () => {
                   <Link
                     href={`/rooms/${room._id}`}
                   >
-                    <button className="w-full mt-7 bg-white/5 hover:bg-cyan-500 transition-all duration-300 border border-white/10 hover:border-cyan-500 py-4 rounded-2xl text-white font-semibold flex items-center justify-center gap-3 group">
+                    <button className="w-full mt-7 bg-white/5 hover:bg-cyan-500 transition-all duration-300 border border-white/10 hover:border-cyan-500 py-4 rounded-2xl text-white font-semibold flex items-center justify-center gap-3 group cursor-pointer">
                       View Details
 
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
